@@ -147,7 +147,7 @@ const SCEObjectForm: React.FC<SCEObjectFormProps> = ({ onSuccess }) => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="space-y-2">
               <Label htmlFor="containmentClass">Класс содержания</Label>
               <Select
@@ -183,6 +183,25 @@ const SCEObjectForm: React.FC<SCEObjectFormProps> = ({ onSuccess }) => {
                   <SelectItem value={RiskClass.WARNING}>WARNING (Предупреждение)</SelectItem>
                   <SelectItem value={RiskClass.DANGER}>DANGER (Опасность)</SelectItem>
                   <SelectItem value={RiskClass.CRITICAL}>CRITICAL (Критический)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="disruptionClass">Класс нарушения</Label>
+              <Select
+                value={formData.disruptionClass}
+                onValueChange={handleSelectChange('disruptionClass')}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Выберите класс нарушения" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={DisruptionClass.DARK}>DARK (Тёмный)</SelectItem>
+                  <SelectItem value={DisruptionClass.VLAM}>VLAM (Влам)</SelectItem>
+                  <SelectItem value={DisruptionClass.KENEQ}>KENEQ (Кенек)</SelectItem>
+                  <SelectItem value={DisruptionClass.EKHI}>EKHI (Экхи)</SelectItem>
+                  <SelectItem value={DisruptionClass.AMIDA}>AMIDA (Амида)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
