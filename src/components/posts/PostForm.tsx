@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -17,7 +16,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { useAuth } from '@/components/auth/AuthContext';
 import { createPost, updatePost, getPostById } from '@/lib/mock-data';
 import { Post, PostCategory } from '@/lib/types';
-import { v4 as uuidv4 } from '@/lib/utils';
+import { v4 } from '@/lib/utils';
 import { FileText, X, Plus } from 'lucide-react';
 
 // Validation schema
@@ -93,7 +92,7 @@ const PostForm = ({ postId, onSuccess }: PostFormProps) => {
     
     try {
       const postData: Post = {
-        id: initialPost?.id || uuidv4(),
+        id: initialPost?.id || v4(),
         title: values.title,
         content: values.content,
         category: values.category as PostCategory,
